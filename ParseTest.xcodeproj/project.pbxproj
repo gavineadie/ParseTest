@@ -7,30 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		868B8F36147F41E6005FED5F /* ParserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 868B8F35147F41E6005FED5F /* ParserDelegate.m */; };
+		868B8F39147F42EB005FED5F /* CoreParse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868B8F38147F42EB005FED5F /* CoreParse.framework */; };
+		868B8F56147F4CC4005FED5F /* Factor.m in Sources */ = {isa = PBXBuildFile; fileRef = 868B8F55147F4CC3005FED5F /* Factor.m */; };
 		86E0F7D3147EBE9600EB18B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86E0F7D2147EBE9500EB18B5 /* Foundation.framework */; };
 		86E0F7D6147EBE9600EB18B5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E0F7D5147EBE9600EB18B5 /* main.m */; };
-		86E0F7DA147EBE9600EB18B5 /* ParseTest.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86E0F7D9147EBE9600EB18B5 /* ParseTest.1 */; };
+		86FDAE34147ED878009A1CA4 /* TokeniserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 86FDAE33147ED878009A1CA4 /* TokeniserDelegate.m */; };
+		86FDAE40147EE17D009A1CA4 /* Expression.m in Sources */ = {isa = PBXBuildFile; fileRef = 86FDAE3F147EE17D009A1CA4 /* Expression.m */; };
+		86FDAE44147EE1DE009A1CA4 /* Term.m in Sources */ = {isa = PBXBuildFile; fileRef = 86FDAE43147EE1DE009A1CA4 /* Term.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		86E0F7CC147EBE9500EB18B5 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-				86E0F7DA147EBE9600EB18B5 /* ParseTest.1 in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
+		868B8F34147F41E6005FED5F /* ParserDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParserDelegate.h; sourceTree = "<group>"; };
+		868B8F35147F41E6005FED5F /* ParserDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParserDelegate.m; sourceTree = "<group>"; };
+		868B8F38147F42EB005FED5F /* CoreParse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreParse.framework; path = ../../Library/Frameworks/CoreParse.framework; sourceTree = "<group>"; };
+		868B8F54147F4CC3005FED5F /* Factor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Factor.h; sourceTree = "<group>"; };
+		868B8F55147F4CC3005FED5F /* Factor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Factor.m; sourceTree = "<group>"; };
 		86E0F7CE147EBE9500EB18B5 /* ParseTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ParseTest; sourceTree = BUILT_PRODUCTS_DIR; };
 		86E0F7D2147EBE9500EB18B5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		86E0F7D5147EBE9600EB18B5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		86E0F7D8147EBE9600EB18B5 /* ParseTest-Prefix.pch */ = {isa = PBXFileReference; path = "ParseTest-Prefix.pch"; sourceTree = "<group>"; };
-		86E0F7D9147EBE9600EB18B5 /* ParseTest.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = ParseTest.1; sourceTree = "<group>"; };
+		86E0F7D8147EBE9600EB18B5 /* ParseTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ParseTest-Prefix.pch"; sourceTree = "<group>"; };
+		86FDAE32147ED878009A1CA4 /* TokeniserDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TokeniserDelegate.h; sourceTree = "<group>"; };
+		86FDAE33147ED878009A1CA4 /* TokeniserDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TokeniserDelegate.m; sourceTree = "<group>"; };
+		86FDAE3E147EE17D009A1CA4 /* Expression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Expression.h; sourceTree = "<group>"; };
+		86FDAE3F147EE17D009A1CA4 /* Expression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Expression.m; sourceTree = "<group>"; };
+		86FDAE42147EE1DE009A1CA4 /* Term.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Term.h; sourceTree = "<group>"; };
+		86FDAE43147EE1DE009A1CA4 /* Term.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Term.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +41,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				86E0F7D3147EBE9600EB18B5 /* Foundation.framework in Frameworks */,
+				868B8F39147F42EB005FED5F /* CoreParse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +68,7 @@
 		86E0F7D1147EBE9500EB18B5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				868B8F38147F42EB005FED5F /* CoreParse.framework */,
 				86E0F7D2147EBE9500EB18B5 /* Foundation.framework */,
 			);
 			name = Frameworks;
@@ -74,7 +78,16 @@
 			isa = PBXGroup;
 			children = (
 				86E0F7D5147EBE9600EB18B5 /* main.m */,
-				86E0F7D9147EBE9600EB18B5 /* ParseTest.1 */,
+				86FDAE3E147EE17D009A1CA4 /* Expression.h */,
+				86FDAE3F147EE17D009A1CA4 /* Expression.m */,
+				868B8F54147F4CC3005FED5F /* Factor.h */,
+				868B8F55147F4CC3005FED5F /* Factor.m */,
+				86FDAE42147EE1DE009A1CA4 /* Term.h */,
+				86FDAE43147EE1DE009A1CA4 /* Term.m */,
+				86FDAE32147ED878009A1CA4 /* TokeniserDelegate.h */,
+				86FDAE33147ED878009A1CA4 /* TokeniserDelegate.m */,
+				868B8F34147F41E6005FED5F /* ParserDelegate.h */,
+				868B8F35147F41E6005FED5F /* ParserDelegate.m */,
 				86E0F7D7147EBE9600EB18B5 /* Supporting Files */,
 			);
 			path = ParseTest;
@@ -97,7 +110,6 @@
 			buildPhases = (
 				86E0F7CA147EBE9500EB18B5 /* Sources */,
 				86E0F7CB147EBE9500EB18B5 /* Frameworks */,
-				86E0F7CC147EBE9500EB18B5 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -139,6 +151,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				86E0F7D6147EBE9600EB18B5 /* main.m in Sources */,
+				86FDAE34147ED878009A1CA4 /* TokeniserDelegate.m in Sources */,
+				86FDAE40147EE17D009A1CA4 /* Expression.m in Sources */,
+				86FDAE44147EE1DE009A1CA4 /* Term.m in Sources */,
+				868B8F36147F41E6005FED5F /* ParserDelegate.m in Sources */,
+				868B8F56147F4CC4005FED5F /* Factor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,7 +165,7 @@
 		86E0F7DB147EBE9600EB18B5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = NO;
@@ -175,7 +192,7 @@
 		86E0F7DC147EBE9600EB18B5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = YES;
@@ -195,6 +212,7 @@
 		86E0F7DE147EBE9600EB18B5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "\"~/Library/Frameworks\"";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ParseTest/ParseTest-Prefix.pch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -204,6 +222,7 @@
 		86E0F7DF147EBE9600EB18B5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "\"~/Library/Frameworks\"";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ParseTest/ParseTest-Prefix.pch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -229,6 +248,7 @@
 				86E0F7DF147EBE9600EB18B5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
