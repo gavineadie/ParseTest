@@ -47,7 +47,7 @@ int main (int argc, const char * argv[]) {
         ParserDelegate * pDelegate = [[ParserDelegate alloc] init];
         parser.delegate = pDelegate;
         
-        NSLog(@"ANSWER %f", [(Expression *)[parser parse:tokenStream] value]);
+        NSLog(@"ANSWER %3.1f", [(Expression *)[parser parse:tokenStream] value]);
     }
     
     return 0;

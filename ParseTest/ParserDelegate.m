@@ -12,12 +12,6 @@
 
 - (id)parser:(CPParser *)parser didProduceSyntaxTree:(CPSyntaxTree *)syntaxTree {
     NSLog(@"ParserDelegate:didProduceSyntaxTree: %@", syntaxTree);
-    NSLog(@"                  [SyntaxTree rule]: %@", [syntaxTree rule]);
-    NSLog(@"              [SyntaxTree children]: %@", [syntaxTree children]);
-    
-    
-    NSLog(@"              [SyntaxTree child[0]]: %@", [[syntaxTree children] objectAtIndex:0]);
-    
     
     return [(CPKeywordToken *)[[syntaxTree children] objectAtIndex:0] keyword];
 }

@@ -32,7 +32,7 @@
 }
 
 - (NSString *) description {
-    return [NSString stringWithFormat:@"F %f", value];
+    return [NSString stringWithFormat:@"<Factor: %3.1f>", value];
 }
 
 @end

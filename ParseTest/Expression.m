@@ -35,4 +35,8 @@
     return self;
 }
 
+- (NSString *) description {
+    return [NSString stringWithFormat:@"<Expression: %3.1f>", value];
+}
+
 @end

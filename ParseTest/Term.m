@@ -37,4 +37,8 @@
     return self;
 }
 
+- (NSString *) description {
+    return [NSString stringWithFormat:@"<Term: %3.1f>", value];
+}
+
 @end
