@@ -10,10 +10,17 @@
 
 @implementation ParserDelegate
 
-- (id)parser:(CPParser *)parser didProduceSyntaxTree:(CPSyntaxTree *)syntaxTree {
+- (id)parser:(CPParser *)parser didProduceSyntaxTree:(CPSyntaxTree *)syntaxTree
+{
     NSLog(@"ParserDelegate:didProduceSyntaxTree: %@", syntaxTree);
     
-    return [(CPKeywordToken *)[[syntaxTree children] objectAtIndex:0] keyword];
+    return [(CPKeywordToken *)[syntaxTree childAtIndex:0] keyword];
+}
+
+- (CPRecoveryAction *)parser:(CPParser *)parser didEncounterErrorOnInput:(CPTokenStream *)inputStream expecting:(NSSet *)acceptableTokens
+{
+    NSLog(@"Error");
+    return [CPRecoveryAction recoveryActionStop];
 }
 
 @end

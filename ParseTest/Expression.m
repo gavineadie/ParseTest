@@ -13,29 +13,36 @@
 
 @synthesize value;
 
-- (id)initWithSyntaxTree:(CPSyntaxTree *)syntaxTree {
-    if (nil == (self = [self init])) return nil;
+- (id)initWithSyntaxTree:(CPSyntaxTree *)syntaxTree
+{
+    self = [self init];
     
-    NSLog(@"Expression:initWithSyntaxTree: %@", syntaxTree);
-
-    NSArray *       components = [syntaxTree children];
-
-    if ([components count] == 1) {
-        [self setValue:[(Term *)[components objectAtIndex:0] value]];
-    }
-    else {
-        if ([[components objectAtIndex:1] isEqualToString:@"+"]) {
-            [self setValue:[(Expression *)[components objectAtIndex:0] value] + [(Term *)[components objectAtIndex:2] value]];
+    if (nil != self)
+    {
+        NSLog(@"Expression initWithSyntaxTree: %@", syntaxTree);
+        
+        Term       *t = [syntaxTree valueForTag:@"term"];
+        Expression *e = [syntaxTree valueForTag:@"expr"];
+        
+        if (nil == e)
+        {
+            [self setValue:[t value]];
         }
-        else {
-            [self setValue:[(Expression *)[components objectAtIndex:0] value] - [(Term *)[components objectAtIndex:2] value]];
+        else if ([[syntaxTree valueForTag:@"op"] isEqualToString:@"+"])
+        {
+            [self setValue:[e value] + [t value]];
+        }
+        else
+        {
+            [self setValue:[e value] - [t value]];
         }
     }
-
+    
     return self;
 }
 
-- (NSString *) description {
+- (NSString *) description
+{
     return [NSString stringWithFormat:@"<Expression: %3.1f>", value];
 }
 

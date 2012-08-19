@@ -13,31 +13,36 @@
 
 @synthesize value;
 
-- (id)initWithSyntaxTree:(CPSyntaxTree *)syntaxTree {
+- (id)initWithSyntaxTree:(CPSyntaxTree *)syntaxTree
+{
     self = [self init];
     
-    if (nil != self) {
-        NSLog(@"Term:initWithSyntaxTree: %@", syntaxTree);
-
-        NSArray *components = [syntaxTree children];
-        if ([components count] == 1) {
-            [self setValue:[(Term *)[components objectAtIndex:0] value]];
+    if (nil != self)
+    {
+        NSLog(@"Term initWithSyntaxTree: %@", syntaxTree);
+        
+        Factor *f = [syntaxTree valueForTag:@"fact"];
+        Term   *t = [syntaxTree valueForTag:@"term"];
+        
+        if (nil == t)
+        {
+            [self setValue:[f value]];
         }
-        else {
-            NSString *op = [components objectAtIndex:1];
-            if ([op isEqualToString:@"*"]) {
-                [self setValue:[(Term *)[components objectAtIndex:0] value] * [(Factor *)[components objectAtIndex:2] value]];
-            }
-            else {
-                [self setValue:[(Term *)[components objectAtIndex:0] value] / [(Factor *)[components objectAtIndex:2] value]];
-            }
+        else if ([[syntaxTree valueForTag:@"op"] isEqualToString:@"*"])
+        {
+            [self setValue:[f value] * [t value]];
+        }
+        else
+        {
+            [self setValue:[f value] / [t value]];
         }
     }
     
     return self;
 }
 
-- (NSString *) description {
+- (NSString *) description
+{
     return [NSString stringWithFormat:@"<Term: %3.1f>", value];
 }
 
