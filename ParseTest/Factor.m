@@ -13,25 +13,24 @@
 
 @synthesize value;
 
-- (id)initWithSyntaxTree:(CPSyntaxTree *)syntaxTree {
+- (id)initWithSyntaxTree:(CPSyntaxTree *)syntaxTree
+{
     self = [self init];
     
-    if (nil != self) {
-        NSLog(@"Factor:initWithSyntaxTree: %@", syntaxTree);
+    if (nil != self)
+    {
+        NSLog(@"Factor initWithSyntaxTree: %@", syntaxTree);
         
-        NSArray *components = [syntaxTree children];
-        if ([components count] == 1) {
-            [self setValue:[[(CPNumberToken *)[components objectAtIndex:0] number] floatValue]];
-        }
-        else {
-            [self setValue:[(Expression *)[components objectAtIndex:1] value]];
-        }
+        Expression    *e = [syntaxTree valueForTag:@"expr"];
+        
+        [self setValue:nil == e ? [[[syntaxTree valueForTag:@"num"] number] floatValue] : [e value]];
     }
     
     return self;
 }
 
-- (NSString *) description {
+- (NSString *) description
+{
     return [NSString stringWithFormat:@"<Factor: %3.1f>", value];
 }
 

@@ -27,25 +27,32 @@ int main (int argc, const char * argv[]) {
         [tokeniser addTokenRecogniser:[CPKeywordRecogniser recogniserForKeyword:@"("]];
         [tokeniser addTokenRecogniser:[CPKeywordRecogniser recogniserForKeyword:@")"]];
         
-        TokeniserDelegate * tDelegate = [[TokeniserDelegate alloc] init];
-        tokeniser.delegate = tDelegate;
+        TokeniserDelegate *tDelegate = [[TokeniserDelegate alloc] init];
+        [tokeniser setDelegate:tDelegate];
 
-        CPTokenStream *     tokenStream = [tokeniser tokenise:@"5 + (2.0 / 5.0 + 9) * 8"];
-        
-        
+        CPTokenStream *tokenStream = [tokeniser tokenise:@"5 + (2.0 / 5.0 + 9) * 8"];
         NSLog(@"tokenStream: %@", tokenStream);
-    
 
-        NSString *  expressionGrammar = @"Expression ::= <Term>     | <Expression> <AddOp> <Term>;"
-                                        @"Term       ::= <Factor>   | <Term>       <MulOp> <Factor>;"
-                                        @"Factor     ::= \"Number\" | \"(\" <Expression> \")\";"
-                                        @"AddOp      ::= \"+\"      | \"-\";"
-                                        @"MulOp      ::= \"*\"      | \"/\";";
-
-        CPParser *          parser = [CPLALR1Parser parserWithGrammar:[CPGrammar grammarWithStart:@"Expression" 
-                                                                                   backusNaurForm:expressionGrammar]];
-        ParserDelegate * pDelegate = [[ParserDelegate alloc] init];
-        parser.delegate = pDelegate;
+        NSString *expressionGrammar = @"Expression ::= term@<Term>   | expr@<Expression> op@<AddOp> term@<Term>;\n"
+                                      @"Term       ::= fact@<Factor> | fact@<Factor>     op@<MulOp> term@<Term>;\n"
+                                      @"Factor     ::= num@'Number'  | '(' expr@<Expression> ')';"
+                                      @"AddOp      ::= '+' | '-';\n"
+                                      @"MulOp      ::= '*' | '/';\n";
+        
+        NSError *err = nil;
+        CPGrammar *g = [CPGrammar grammarWithStart:@"Expression"
+                                    backusNaurForm:expressionGrammar
+                                             error:&err];
+        if (nil == g)
+        {
+            NSLog(@"Error creating grammar:");
+            NSLog(@"%@", err);
+            return 0;
+        }
+        CPParser *parser = [CPLALR1Parser parserWithGrammar:g];
+        
+        ParserDelegate *pDelegate = [[ParserDelegate alloc] init];
+        [parser setDelegate:pDelegate];
         
         NSLog(@"ANSWER %3.1f", [(Expression *)[parser parse:tokenStream] value]);
     }
